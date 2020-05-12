@@ -15,7 +15,10 @@
 		padding: 0;
 		border: 0;
 		font-size: 100%;
-		font-family: "Source Sans Pro", Helvetica, sans-serif;
+		font: Montserrat;
+		font-family: Montserrat, Helvetica, sans-serif;
+		font-weight: 200;
+		font-style: normal;
 		vertical-align: baseline;
 	}
 
@@ -1432,7 +1435,6 @@
 		color: rgb(255, 255, 255, 0.8);
 		font-family: "Source Sans Pro", Helvetica, sans-serif;
 		font-size: 13pt;
-		font-weight: 200;
 		line-height: 1.65;
 	}
 
@@ -1461,7 +1463,6 @@
 
 	strong, b {
 		color: #ffffff;
-		font-weight: 200;
 	}
 
 	em, i {
@@ -1474,7 +1475,6 @@
 
 	h1, h2, h3, h4, h5, h6 {
 		color: #000000;
-		font-weight: 200;
 		line-height: 1.5;
 		margin: 0 0 1em 0;
 	}
@@ -1644,7 +1644,6 @@
 		color: #ffffff;
 		display: block;
 		font-size: 0.9em;
-		font-weight: 200;
 		margin: 0 0 1em 0;
 	}
 
@@ -1754,7 +1753,6 @@
 			cursor: pointer;
 			display: inline-block;
 			font-size: 1em;
-			font-weight: 200;
 			padding-left: 2.4em;
 			padding-right: 0.75em;
 			position: relative;
@@ -1865,9 +1863,9 @@
 		.icon:before {
 			-moz-osx-font-smoothing: grayscale;
 			-webkit-font-smoothing: antialiased;
-			font-family: FontAwesome;
 			font-style: normal;
 			font-weight: normal;
+			font-family: FontAwesome;
 			text-transform: none !important;
 		}
 
@@ -2122,7 +2120,6 @@
 
 		dl dt {
 			display: block;
-			font-weight: 200;
 			margin: 0 0 1em 0;
 		}
 
@@ -2159,7 +2156,6 @@
 		table th {
 			color: #ffffff;
 			font-size: 0.9em;
-			font-weight: 200;
 			padding: 0 0.75em 0.75em 0.75em;
 			text-align: left;
 		}
@@ -2216,10 +2212,9 @@
 		background-color: #FF6382;
 		border-radius: 4px;
 		border: 0;
-		color: !important;
+		color: rgb(255, 255, 255, 0.8) !important;
 		cursor: pointer;
 		display: inline-block;
-		font-weight: 200;
 		height: 2.85em;
 		line-height: 2.95em;
 		padding: 0 1.5em;

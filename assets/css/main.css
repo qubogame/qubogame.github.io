@@ -2320,7 +2320,7 @@
 		button.special,
 		.button.special {
 			background-color: #FF6382;
-			color: !important;
+			color: #FF6382 !important;
 		}
 
 			input[type="submit"].special:hover,
@@ -2583,7 +2583,7 @@
 		/* padding: 4em 0 0em 0; */
 	}
 
-		.contents {
+		#header .contents {
 			position: absolute;
 			top: 50%;
 			left: 50%;
@@ -2593,6 +2593,10 @@
 		#header h1 {
 			color: rgba(255, 255, 255);
 		}
+
+		#header .contents > .countdown { display: none;}
+		#header .contents:hover > .launch { display: none; }
+		#header .contents:hover > .countdown { display: block; }
 
 		#header .avatar {
 			border-radius: 100%;

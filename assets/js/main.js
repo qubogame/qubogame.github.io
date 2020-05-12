@@ -4,6 +4,8 @@
 	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 */
 
+var countDownDate = new Date("Jun 1, 2020 00:00:00").getTime();
+
 $(function() {
 
 	// Vars.
@@ -46,4 +48,38 @@ $(function() {
 
 		});
 
+	// Countdown timer
+	// Various spans
+	$window.on('load', startCountdown);
+
 });
+
+function startCountdown () {
+	var root = document.querySelector("#header .contents .countdown");
+	var eDays = root.querySelector('.days');
+	var eHours = root.querySelector('.hours');
+	var eMinutes = root.querySelector('.minutes');
+	var eSeconds = root.querySelector('.seconds');
+
+	var countdown = function() {
+		// Get today's date and time
+		var now = new Date().getTime();
+
+		// Find the distance between now and the count down date
+		var distance = countDownDate - now;
+
+		// Time calculations for days, hours, minutes and seconds
+		var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+		var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+		var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+		var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+		// Display the result in the various spans
+		eDays.innerHTML = days;
+		eHours.innerHTML = hours;
+		eMinutes.innerHTML = minutes;
+		eSeconds.innerHTML = seconds;
+	};
+
+	setInterval(countdown, 1000);
+}

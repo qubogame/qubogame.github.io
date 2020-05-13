@@ -2632,6 +2632,22 @@
 
 		}
 
+/* Main */
+
+	#main .trailercontainer {
+		position: relative;
+		padding-bottom: 56.25%;
+		height: 0;
+	}
+
+	#main .trailer {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
 /* Footer */	
 
 	#footer {

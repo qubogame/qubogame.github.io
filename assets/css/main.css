@@ -2668,3 +2668,8 @@
 			}
 
 		}
+
+/* Disable iOS playbutton overlay on videos */
+video::-webkit-media-controls {
+    display:none !important;
+}

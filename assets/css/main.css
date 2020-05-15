@@ -1476,7 +1476,7 @@
 	h1, h2, h3, h4, h5, h6 {
 		color: #000000;
 		line-height: 1.5;
-		margin: 0 0 1em 0;
+		margin: 0 0 0em 0;
 	}
 
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -2679,6 +2679,65 @@
 
 }
 
+/* Screenshot blurb thumbnails */
+.thumbs {
+	display: table;
+	width: 100%;
+	padding: 0em 0;
+}
+
+.thumbs .screenshot-blurb {
+	display: table-cell;
+	padding: 1em;
+}
+
+.thumbs .screenshot-blurb .screenshot-blurb-image {
+	width: 100%;
+}
+
+.thumbs .screenshot-blurb .screenshot-blurb-image img {
+	width: 100%;
+	border-radius: 5px;
+	/* box-shadow: 2px 2px 20px #dbdbdb; */
+	border: 1px solid black;
+}
+
+.thumbs .screenshot-blurb .screenshot-blurb-text {
+	width: 100%;	
+}
+
+.thumbs:last-child {
+	margin: 0;
+}
+
+@media screen and (max-width: 800px) {
+	.thumbs .screenshot-blurb {
+		display: table-row;
+	}
+
+	.thumbs .screenshot-blurb .screenshot-blurb-image img {
+		width: 50%;
+		height: auto;
+	}
+}
+
+/* App Banners */
+.app-banners img {
+	margin: 2em 0;
+	width: 200px;
+}
+
+@media screen and (max-width: 800px) {
+	.app-banners {
+
+	}
+
+	.app-banners img {
+		display: block;
+		margin: 0;
+	}
+}
+
 
 /* Main */
 
@@ -2709,8 +2768,12 @@
 		border-color: black;
 	}
 
-	#footer a:hover {
+	#footer a:not(.icon):hover {
 		color: rgb(0,0,0,0.5);
+	}
+
+	#footer a.icon:hover {
+		color: white;
 	}
 
 		@media screen and (max-width: 1280px) {

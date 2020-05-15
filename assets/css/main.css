@@ -2683,12 +2683,12 @@
 .thumbs {
 	display: table;
 	width: 100%;
-	padding: 0em 0;
+	padding: 0em 12%;
 }
 
 .thumbs .screenshot-blurb {
 	display: table-cell;
-	padding: 1em;
+	padding: 0.5em;
 }
 
 .thumbs .screenshot-blurb .screenshot-blurb-image {
@@ -2716,7 +2716,7 @@
 	}
 
 	.thumbs .screenshot-blurb .screenshot-blurb-image img {
-		width: 50%;
+		width: 100%;
 		height: auto;
 	}
 }
@@ -2729,12 +2729,13 @@
 
 @media screen and (max-width: 800px) {
 	.app-banners {
-
+		text-align: center;
+		margin: 2em 0;
 	}
 
 	.app-banners img {
 		display: block;
-		margin: 0;
+		margin: 0.25em auto;
 	}
 }
 

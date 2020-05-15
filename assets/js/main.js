@@ -52,6 +52,9 @@ $(function() {
 	// Various spans
 	$window.on('load', startCountdown);
 
+	// Load random video
+	loadRandomVideo();
+
 });
 
 function startCountdown () {
@@ -82,4 +85,15 @@ function startCountdown () {
 	};
 
 	setInterval(countdown, 1000);
+}
+
+function loadRandomVideo () {
+	var root = "videos/levels/";
+	var videos = ["00.webm", "01.webm", "02.webm", "03.webm", "04.webm"];
+	var posters = ["00.png", "01.png", "02.png", "03.png", "04.png"];
+
+	var videoElement = document.querySelector("#header .vid video");
+	var randomIndex = Math.floor(Math.random() * Math.min(videos.length, posters.length));
+	videoElement.src = root + videos[randomIndex];
+	videoElement.poster = root + posters[randomIndex];
 }

@@ -1418,6 +1418,12 @@
 		background-position: top center;
 	}
 
+	@media screen and (max-width: 800px) {
+		body {
+			background: linear-gradient(186deg, #21cce2 0%, #21cce2 115vh, #ffffff 115vh);
+		}
+	}
+
 		body.is-loading *, body.is-loading *:before, body.is-loading *:after {
 			-moz-animation: none !important;
 			-webkit-animation: none !important;

@@ -1412,8 +1412,8 @@
 	}
 
 	body {
-		background-color: #000;
-		background-image: url("../../images/bg.jpg");
+		background-color: white;
+		background: linear-gradient(186deg, #21cce2 0%, #21cce2 150vh, #ffffff 150vh);
 		background-size: cover;
 		background-position: top center;
 	}

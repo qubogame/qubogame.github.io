@@ -32,7 +32,7 @@ $(function() {
 	// Poptrox.
 		$window.on('load', function() {
 
-			$('.thumbnails').poptrox({
+			$('.thumbs').poptrox({
 				onPopupClose: function() { $body.removeClass('is-covered'); },
 				onPopupOpen: function() { $body.addClass('is-covered'); },
 				baseZIndex: 10001,

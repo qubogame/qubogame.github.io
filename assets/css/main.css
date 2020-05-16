@@ -2689,6 +2689,7 @@
 .thumbs .screenshot-blurb {
 	display: table-cell;
 	padding: 0.5em;
+	width: calc(100% / 3);
 }
 
 .thumbs .screenshot-blurb .screenshot-blurb-image {
@@ -2699,15 +2700,11 @@
 	width: 100%;
 	border-radius: 5px;
 	/* box-shadow: 2px 2px 20px #dbdbdb; */
-	border: 1px solid black;
+	/* border: 1px solid black; */
 }
 
 .thumbs .screenshot-blurb .screenshot-blurb-text {
 	width: 100%;	
-}
-
-.thumbs:last-child {
-	margin: 0;
 }
 
 @media screen and (max-width: 800px) {
@@ -2723,7 +2720,7 @@
 
 /* App Banners */
 .app-banners img {
-	margin: 2em 0;
+	margin: 50px 0;
 	width: 200px;
 }
 
@@ -2743,9 +2740,11 @@
 /* Main */
 
 	#main .trailercontainer {
+		margin: 0 auto;
 		position: relative;
-		padding-bottom: 56.25%;
+		padding-bottom: calc(0.76 * 56.25%);
 		height: 0;
+		width: 76%;
 	}
 
 	#main .trailer {
@@ -2769,6 +2768,10 @@
 		border-color: black;
 	}
 
+	#footer > p {
+		margin: 0 0 2em 0;
+	}
+
 	#footer a:not(.icon):hover {
 		color: rgb(0,0,0,0.5);
 	}
@@ -2777,13 +2780,68 @@
 		color: white;
 	}
 
-		@media screen and (max-width: 1280px) {
-
-			#footer {
-				padding: 2em 0 2em 0;
+		@media screen and (max-width: 800px) {
+			#footer > p {
+				margin: 2em 0;
 			}
-
 		}
+
+	/* Bottom Navigation Icons */
+	ul.bottom-navigation {
+		cursor: default;
+		list-style: none;
+		padding-left: 0;
+	}
+
+	ul.bottom-navigation li {
+		margin: 0 0.25em 0;
+		background-color: white;
+		box-shadow: 0 1px black;
+		border-radius: 15px;
+		display: inline-block;
+		padding-left: 0;
+		-moz-transition: background-color 0.2s ease;
+		-webkit-transition: background-color 0.2s ease;
+		-ms-transition: background-color 0.2s ease;
+		transition: background-color 0.2s ease;
+	}
+
+	ul.bottom-navigation li .bottom-navigation-label {
+		color: black;
+		font-variant-caps: all-small-caps;
+		padding: 0.5em 1em;
+		-moz-transition: color 0.2s ease;
+		-webkit-transition: color 0.2s ease;
+		-ms-transition: color 0.2s ease;
+		transition: color 0.2s ease;
+	}
+
+	ul.bottom-navigation li:hover {
+		background-color: black;
+	}
+
+	ul.bottom-navigation li:hover .bottom-navigation-label {
+		color: white;
+	}
+
+	ul.bottom-navigation li:last-child {
+		margin: 0;
+	}
+
+	@media screen and (max-width: 800px) {
+		ul.bottom-navigation li {
+			box-shadow: none;
+			display: block;
+			border-top: 1px solid black;
+			margin: 0;
+			border-radius: 0;
+			padding: 0.5em;
+		}
+
+		ul.bottom-navigation li:last-child {
+			border-bottom: 1px solid black;
+		}
+	}
 
 /* Disable iOS playbutton overlay on videos */
 video::-webkit-media-controls {

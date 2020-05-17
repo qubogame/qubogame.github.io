@@ -134,12 +134,11 @@ function showModal (button, modal) {
 	}
 
 	var close = modal.querySelector(".close");
-	var inner = modal.querySelector(".modal-inner");
 
 	button.onclick = onopen;
 	close.onclick = onclose;
 	window.addEventListener("click", function(event) {
-		if (event.target == inner) {
+		if (event.target == modal) {
 			onclose();
 		}
 	});

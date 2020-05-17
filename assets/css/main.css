@@ -1403,14 +1403,6 @@
 		-ms-overflow-style: scrollbar;
 	}
 
-	@media screen and (max-width: 480px) {
-
-		html, body {
-			min-width: 320px;
-		}
-
-	}
-
 	body {
 		background-color: white;
 		background: linear-gradient(186deg, #21cce2 0%, #21cce2 150vh, #ffffff 150vh);
@@ -2647,7 +2639,7 @@
 }
 
 .image-blurb-image img {
-	max-height: 20em;
+	max-width: 80%;
 	height: 100%;
 	width: auto;
 	border-radius: 0.5em;
@@ -2846,45 +2838,32 @@
 
 /* Modals */
 .modal {
-	display: table;
 	position: fixed;
 	z-index: 1;
-	left: 0;
-	top: 0;
 	width: 100%;
 	height: 100%;
-	overflow: hidden;
+	left: 0;
+	top: 0;
 	background-color: rgba(0,0,0,0.4);
 	opacity: 0;
-
-	-moz-transition: visibility 0s ease 0.2s,opacity 0.2s ease;
-	-webkit-transition: visibility 0s ease 0.2s,opacity 0.2s ease;
-	-ms-transition: visibility 0s ease 0.2s,opacity 0.2s ease;
-	transition: visibility 0s ease 0.2s,opacity 0.2s ease;
 	visibility: hidden;
 }
 
 .modal.display {
 	opacity: 1;
 	visibility: visible;
-	transition-delay:0s;
-}
-
-.modal-inner {
-	display: table-cell;
-	vertical-align: middle;
 }
 
 .modal .modal-content {
-	overflow: auto;
-	position: relative;
-	background-color: #000000ff;
-	color: white;
-	margin: 0 auto;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	background-color: black;
 	padding: 2em;
-	width: 80%;
-	max-height: 80vh;
-	border-radius: 15px;
+	border-radius: 12px;
+	max-height: 80%;
+	overflow: auto;	
 }
 
 .modal .modal-content h1 {
@@ -2897,6 +2876,17 @@
 	top: calc(10px - 0.5em);
 	right: 10px;
 	cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+	.modal .modal-content {
+		left: 0;
+		top: 0;
+		transform: none;
+		max-height: 100%;
+		height: 100%;
+		border-radius: 0;
+	}
 }
 
 /* Disable iOS playbutton overlay on videos */

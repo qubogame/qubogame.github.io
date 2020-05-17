@@ -1,0 +1,138 @@
+@charset "UTF-8";
+
+/* Header */
+
+#header {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    height: 100vh;
+    /* padding: 4em 0 0em 0; */
+}
+
+    #header .contents {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #header .vid {
+        position: absolute; 
+        top: 0; left:0;
+        width: 100%; height: 100%; 
+        z-index: -1;
+        opacity: 0.2;
+        transform: scale(100%);
+    }
+
+    #header h1 {
+        color: rgba(255, 255, 255);
+    }
+
+    #header .contents > .countdown { display: none;}
+    #header .contents:hover > .launch { display: none; }
+    #header .contents:hover > .countdown { display: block; }
+
+    #header .avatar {
+        border-radius: 100%;
+        display: inline-block;
+        margin: 0 0 2em 0;
+        padding: 0.5em;
+        border: solid 1px rgba(255, 255, 255, 0.25);
+        background-color: rgba(255, 255, 255, 0.075);
+    }
+
+        #header .avatar img {
+            border-radius: 100%;
+            display: block;
+            width: 10em;
+        }
+
+    @media screen and (max-width: 1280px) {
+
+        #header {
+            padding: 4em 0 2em 0;
+        }
+
+    }
+
+/* Screenshot blurb thumbnails */
+.thumbs {
+display: table;
+width: 100%;
+padding: 0em 12%;
+}
+
+.thumbs .screenshot-blurb {
+display: table-cell;
+padding: 0.5em;
+width: calc(100% / 3);
+}
+
+.thumbs .screenshot-blurb .screenshot-blurb-image {
+width: 100%;
+}
+
+.thumbs .screenshot-blurb .screenshot-blurb-image img {
+width: 100%;
+border-radius: 5px;
+/* box-shadow: 2px 2px 20px #dbdbdb; */
+/* border: 1px solid black; */
+}
+
+.thumbs .screenshot-blurb .screenshot-blurb-text {
+width: 100%;	
+}
+
+@media screen and (max-width: 800px) {
+.thumbs .screenshot-blurb {
+    display: table-row;
+}
+
+.thumbs .screenshot-blurb .screenshot-blurb-image img {
+    width: 100%;
+    height: auto;
+}
+}
+
+/* App Banners */
+.app-banners img {
+margin: 50px 0;
+width: 200px;
+}
+
+@media screen and (max-width: 800px) {
+.app-banners {
+    text-align: center;
+    margin: 2em 0;
+}
+
+.app-banners img {
+    display: block;
+    margin: 0.25em auto;
+}
+}
+
+
+/* Main */
+
+#main .trailercontainer {
+    margin: 0 auto;
+    position: relative;
+    padding-bottom: calc(0.76 * 56.25%);
+    height: 0;
+    width: 76%;
+}
+
+#main .trailer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#main p, h1, h2, h3, h4, h5 {
+    color: black;
+}

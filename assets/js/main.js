@@ -58,6 +58,10 @@ $(function() {
 	adjustGradientHeight();
 	$window.on('resize', adjustGradientHeight);
 
+	// Disclaimer modal
+	showModal(document.querySelector("#disclaimer-button"),
+		document.querySelector("#disclaimer-modal"));
+
 });
 
 function startCountdown () {
@@ -119,4 +123,24 @@ function getOffsetTop (element) {
 	
 	} while (element);
 	return distance < 0 ? 0 : distance;
+}
+
+function showModal (button, modal) {
+	var onopen = function () {
+		modal.classList.add("display");
+	}
+	var onclose = function () {
+		modal.classList.remove("display");
+	}
+
+	var close = modal.querySelector(".close");
+	var inner = modal.querySelector(".modal-inner");
+
+	button.onclick = onopen;
+	close.onclick = onclose;
+	window.addEventListener("click", function(event) {
+		if (event.target == inner) {
+			onclose();
+		}
+	});
 }

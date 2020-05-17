@@ -55,6 +55,9 @@ $(function() {
 	// Load random video
 	loadRandomVideo();
 
+	adjustGradientHeight();
+	$window.on('resize', adjustGradientHeight);
+
 });
 
 function startCountdown () {
@@ -96,4 +99,24 @@ function loadRandomVideo () {
 	var randomIndex = Math.floor(Math.random() * Math.min(videos.length, posters.length));
 	videoElement.src = root + videos[randomIndex];
 	videoElement.poster = root + posters[randomIndex];
+}
+
+function adjustGradientHeight () {
+	// Adjust the height of the gradient to match with the height of the youtube video trailer
+	var trailer = document.querySelector(".trailercontainer .trailer");
+	var height = getOffsetTop(trailer) + trailer.getBoundingClientRect().height * .75;
+	document.body.style.backgroundImage = `linear-gradient(186deg, #21cce2 0%, #21cce2 ${height}px, #ffffff ${height}px)`;
+}
+
+function getOffsetTop (element) {
+	var distance = 0;
+	do {
+		// Increase our distance counter
+		distance += element.offsetTop;
+	
+		// Set the element to it's parent
+		element = element.offsetParent;
+	
+	} while (element);
+	return distance < 0 ? 0 : distance;
 }

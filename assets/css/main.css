@@ -2873,11 +2873,9 @@
 .modal-inner {
 	display: table-cell;
 	vertical-align: middle;
-
 }
 
 .modal .modal-content {
-	max-height: calc(100vh - 20vw);
 	overflow: auto;
 	position: relative;
 	background-color: #0000008e;
@@ -2885,6 +2883,7 @@
 	margin: 0 auto;
 	padding: 2em;
 	width: 80%;
+	max-height: 80vh;
 	border-radius: 15px;
 }
 

@@ -109,7 +109,7 @@ function adjustGradientHeight () {
 	// Adjust the height of the gradient to match with the height of the youtube video trailer
 	var trailer = document.querySelector(".trailercontainer .trailer");
 	var height = getOffsetTop(trailer) + trailer.getBoundingClientRect().height * .75;
-	document.body.style.backgroundImage = `linear-gradient(186deg, #21cce2 0%, #21cce2 ${height}px, #ffffff ${height}px)`;
+	document.body.style.backgroundImage = `linear-gradient(186deg, #21cce2 0%, #21cce2 ${height-75}px, #ffffff ${height+75}px)`;
 }
 
 function getOffsetTop (element) {

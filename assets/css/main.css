@@ -2432,6 +2432,7 @@
 	}
 
 	body.is-loading #wrapper {
+		visibility: hidden;
 		opacity: 0;
 		-moz-filter: blur(1px);
 		-webkit-filter: blur(1px);

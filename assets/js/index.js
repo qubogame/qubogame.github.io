@@ -1,4 +1,4 @@
-var countDownDate = new Date("Jun 1, 2020 00:00:00").getTime();
+var countDownDate = new Date("Jul 1, 2020 00:00:00").getTime();
 
 $(function() {
     // Countdown timer
@@ -16,10 +16,6 @@ $(function() {
 
 function startCountdown () {
 	var root = document.querySelector("#header .contents .countdown");
-	var eDays = root.querySelector('.days');
-	var eHours = root.querySelector('.hours');
-	var eMinutes = root.querySelector('.minutes');
-	var eSeconds = root.querySelector('.seconds');
 
 	var countdown = function() {
 		// Get today's date and time
@@ -29,16 +25,19 @@ function startCountdown () {
 		var distance = countDownDate - now;
 
 		// Time calculations for days, hours, minutes and seconds
-		var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+		var months = Math.floor(distance / (1000 * 60 * 60 * 24 * 31));
+		var days = Math.floor((distance % (1000 * 60 * 60 * 24 * 31)) / (1000 * 60 * 60 * 24));
 		var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 		var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 		var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
 		// Display the result in the various spans
-		eDays.innerHTML = days;
-		eHours.innerHTML = hours;
-		eMinutes.innerHTML = minutes;
-		eSeconds.innerHTML = seconds;
+		var showMonths = months != 0;
+		var showDays = showMonths || days != 0;
+		var showHours = showDays || hours != 0;
+		var showMinutes = showHours || minutes != 0;
+		var showSeconds = showMinutes || seconds != 0;
+		root.innerHTML = `${(showMonths ? months + "mo" : '')} ${(showDays ? days + "d" : '')} ${(showHours ? hours + "h" : '')} ${(showMinutes ? minutes + "m" : '')} ${(showSeconds ? seconds + "s" : '')}`;
 	};
 
 	setInterval(countdown, 1000);

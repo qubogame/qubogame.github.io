@@ -97,9 +97,17 @@ width: 100%;
 }
 
 /* App Banners */
+.app-banners > div {
+    position: relative;
+    display: inline-block;
+    margin: 50px 0;
+    width: 200px;
+}
+
 .app-banners img {
-margin: 50px 0;
-width: 200px;
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 
 @media screen and (max-width: 800px) {
@@ -108,10 +116,20 @@ width: 200px;
     margin: 2em 0;
 }
 
-.app-banners img {
+.app-banners > div {
     display: block;
     margin: 0.25em auto;
 }
+}
+
+.app-banners > div .coming-soon {
+    border-radius: 10px;
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 

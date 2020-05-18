@@ -1399,7 +1399,7 @@
 
 	body {
 		background-color: white;
-		background: linear-gradient(186deg, #21cce2 0%, #21cce2 150vh, #ffffff 150vh);
+		background: white;
 		background-size: cover;
 		background-position: top center;
 	}
@@ -1571,8 +1571,8 @@
 
 	hr {
 		border: 0;
-		border-bottom: solid 1px rgba(255, 255, 255, 0.25);
-		margin: 2em 0;
+		border-bottom: solid 1px black;
+		margin: 1em 0;
 	}
 
 		hr.major {

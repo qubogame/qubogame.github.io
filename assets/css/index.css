@@ -170,7 +170,7 @@ width: 100%;
 
 #mailing .form-group .form-row .col {
     display: table-cell;
-    padding: 0 1em 0 0;
+    padding: 0 0.5em 0 0;
 }
 
 #mailing .form-group .form-row .col:last-child {

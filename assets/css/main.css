@@ -1423,7 +1423,7 @@
 
 	body, input, select, textarea {
 		color: black;
-		font-family: "Source Sans Pro", Helvetica, sans-serif;
+		font-family: inherit;
 		font-size: 13pt;
 		line-height: 1.65;
 	}
@@ -1627,7 +1627,7 @@
 
 	label {
 		display: block;
-		font-size: 0.9em;
+		font-size: 1em;
 		margin: 0 0 1em 0;
 	}
 

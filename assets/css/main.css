@@ -6,7 +6,7 @@
 /* Reset */
 
 	:root {
-		--accent-color: black;
+		--accent-color: rgb(0, 195, 255);
 	}
 
 	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
@@ -1643,12 +1643,9 @@
 		appearance: none;
 		background: rgba(255, 255, 255, 0.075);
 		border-radius: 4px;
-		border: none;
 		border: solid 1px black;
 		display: block;
-		outline: 0;
 		padding: 0 1em;
-		text-decoration: none;
 		width: 100%;
 	}
 
@@ -1731,6 +1728,10 @@
 
 		input[type="checkbox"] + label,
 		input[type="radio"] + label {
+			-moz-appearance: none;
+			-webkit-appearance: none;
+			-ms-appearance: none;
+			appearance: none;
 			text-decoration: none;
 			color: rgba(255, 255, 255, 0.65);
 			cursor: pointer;

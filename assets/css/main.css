@@ -2585,6 +2585,47 @@
 	}
 }
 
+/* Various contact-us forms */
+#contact {
+    margin: 2em 0;
+}
+
+#contact .form-group {
+    display: table;
+    margin: 1em auto 0.5em auto;
+}
+
+#contact .form-group .form-row {
+    display: table-row;
+}
+
+#contact .form-group .form-row .col {
+    display: table-cell;
+    padding: 0 0.5em 0 0;
+}
+
+#contact .form-group .form-row .col:last-child {
+    padding: 0;
+}
+
+#contact .text-area {
+	padding: 0 0 0.5em 0;
+}
+
+@media screen and (max-width: 800px) {
+    #contact .form-group .form-row .col {
+        display: table-row;
+    }
+
+    #contact .form-group .form-row .col * {
+        margin: 0 0 0.5em 0;
+    }
+
+    #contact .form-group .form-row .col:last-child * {
+        margin: 0;
+    }
+}
+
 /* Disable iOS playbutton overlay on videos */
 video::-webkit-media-controls {
     display:none !important;

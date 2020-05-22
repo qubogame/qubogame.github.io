@@ -154,39 +154,3 @@ width: 100%;
 #main p, h1, h2, h3, h4, h5 {
     color: black;
 }
-
-#mailing {
-    margin: 2em 0;
-}
-
-#mailing .form-group {
-    display: table;
-    margin: 1em auto 0.5em auto;
-}
-
-#mailing .form-group .form-row {
-    display: table-row;
-}
-
-#mailing .form-group .form-row .col {
-    display: table-cell;
-    padding: 0 0.5em 0 0;
-}
-
-#mailing .form-group .form-row .col:last-child {
-    padding: 0;
-}
-
-@media screen and (max-width: 800px) {
-    #mailing .form-group .form-row .col {
-        display: table-row;
-    }
-
-    #mailing .form-group .form-row .col * {
-        margin: 0 0 0.5em 0;
-    }
-
-    #mailing .form-group .form-row .col:last-child * {
-        margin: 0;
-    }
-}

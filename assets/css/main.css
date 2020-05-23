@@ -2543,6 +2543,7 @@
 	background-color: rgba(0,0,0,0.4);
 	opacity: 0;
 	visibility: hidden;
+	color: white;
 }
 
 .modal.display {

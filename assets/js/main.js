@@ -45,6 +45,14 @@ $(function() {
 		showModal(document.querySelector("#disclaimer-button"),
 			document.querySelector("#disclaimer-modal"));
 	});
+
+	var mastHeadElement = document.getElementById("masthead-view");
+	if (mastHeadElement != null) {
+		var mastheadTitle = mastHeadElement.getAttribute("title");
+		$('#masthead-view').load("assets/views/masthead.html", function () {
+			document.querySelector("#masthead .title").innerHTML = mastheadTitle;
+		});
+	}
 });
 
 function showModal (button, modal) {

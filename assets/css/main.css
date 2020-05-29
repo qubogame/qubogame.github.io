@@ -50,6 +50,10 @@
 		-webkit-text-size-adjust: none;
 	}
 
+	b {
+		font-weight: 400;
+	}
+
 /* Box Model */
 
 	*, *:before, *:after {
@@ -1456,7 +1460,7 @@
 	}
 
 	p {
-		margin: 0 0 2em 0;
+		margin: 0 0 0.5em 0;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
@@ -2588,7 +2592,8 @@
 
 /* Various contact-us forms */
 #contact {
-    margin: 2em 0;
+	margin: 2em 0;
+	text-align: center;
 }
 
 #contact .form-group {

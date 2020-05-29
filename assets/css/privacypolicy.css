@@ -1,0 +1,21 @@
+.text-wrapper {
+    text-align: left;
+}
+
+.text-wrapper ul {
+    margin-left: 1em;
+}
+
+.text-wrapper .section > *:last-child {
+    margin-bottom: 1.5em;
+}
+
+@media screen and (max-width: 800px) {
+    .section h1,
+    .section h2,
+    .section h3,
+    .section h4,
+    .section h5 {
+        text-align: center;
+    }
+}

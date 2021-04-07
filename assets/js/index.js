@@ -1,4 +1,4 @@
-var countDownDate = new Date("Jul 1, 2020 00:00:00").getTime();
+var countDownDate = new Date("Jun 1, 2021 00:00:00").getTime();
 
 $(function() {
     // Countdown timer

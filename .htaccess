@@ -1,4 +1,7 @@
 RewriteEngine on
+
+RewriteRule privacy privacypolicy.html
+
 RewriteCond %{THE_REQUEST} \.html [NC]
 RewriteRule ^(.*)\.html$ /$1 [R=301,L]
 

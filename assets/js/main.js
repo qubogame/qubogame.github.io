@@ -23,7 +23,6 @@ $(function() {
 
 	// Poptrox.
 	$(window).on('load', function() {
-
 		$('.thumbs').poptrox({
 			onPopupClose: function() { $("body").removeClass('is-covered'); },
 			onPopupOpen: function() { $("body").addClass('is-covered'); },
@@ -37,7 +36,6 @@ $(function() {
 			usePopupDefaultStyling: false,
 			windowMargin: (skel.breakpoint('small').active ? 5 : 50)
 		});
-
 	});
 
 	$('#footer-view').load("assets/views/footer.html", function () {

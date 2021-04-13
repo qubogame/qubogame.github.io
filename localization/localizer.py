@@ -19,6 +19,11 @@ def getTokenPath ():
     '''Returns the path to the token.json file for Google auth'''
     return os.path.join(getLocalDataDirectory(), "token.json")
 
+def getSettings ():
+    '''Gets the settings object stored in the settings.json file'''
+    path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "settings.json")
+    
+
 def authorize ():
     '''Authorizes this application with Google auth and returns the built Google sheets service'''
     creds = None
@@ -49,7 +54,7 @@ def authorize ():
         with open(tokenPath, 'w') as token:
             token.write(creds.to_json())
     
-    return build('sheets', 'v4', credentials=creds)
+    return build('sheets', 'v4', credentials=creds).spreadsheets()
 
 def main():
     print("Authorizing application with Google auth...")

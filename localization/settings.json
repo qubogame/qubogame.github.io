@@ -1,0 +1,18 @@
+{
+    "output": "lang",
+    "default": "en",
+
+    "sheets": {
+        "documentId": "1UcV9X5Fzqj-MznfQKFaPx5jnHOh8cFgtMi0I7UpZtSo",
+        "spreadsheet": "translations",
+        "start": "223",
+        "end": "300" 
+    },
+
+    "bindings": [
+        {
+            "spreadsheetName": "English",
+            "languageCode": "en"
+        }
+    ]
+}

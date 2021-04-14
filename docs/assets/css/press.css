@@ -10,7 +10,6 @@
 
 .image-blurb-image {
 	padding: 0 2em 0 0 ;
-	float: left;
 	vertical-align: middle;
 }
 
@@ -19,11 +18,14 @@
 	height: 100%;
 	width: auto;
 	border-radius: 0.5em;
-		
 }
 
 .image-blurb-text {
 	text-align: left;
+}
+
+.image-blurb-text h3 {
+	padding: 0 0 1em 0;
 }
 
 @media screen and (max-width: 800px) {

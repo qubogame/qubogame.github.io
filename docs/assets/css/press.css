@@ -34,12 +34,12 @@
 	width: 66%;
 	height: auto;
 	text-align: center;
-	margin: 0 auto;
+	margin: 0.5em auto 0 auto;
 }
 
 .image-blurb-icons {
 	width: 400px;
-	margin: 0 auto;
+	margin: 0.5em auto 0 auto;
 	text-align: center;
 }
 
@@ -68,20 +68,18 @@
 	.factsheet-column {
 		flex: none;
 	}
-}
-
-@media screen and (max-width: 800px) {
 
 	.image-blurb-image {
 		padding: 0;
 		float: none;
 		vertical-align: middle;
 		text-align: center;
-		margin: 0 0 1em 0;
+		margin: 0.5em 0 0.5em 0;
 	}
 
 	.image-blurb-image img {
-		margin: 0 0 0em 0;	
+		height: auto;
+		width: 100%;	
 	}
 
 	.image-blurb-text {
@@ -91,13 +89,13 @@
 
 	.image-blurb-screenshots {
 		width: 100%;
-		margin: 0 auto;
+		margin: 0.5em auto 0 auto;
 	}
 
 	.image-blurb-icons {
 		width: 80%;
 		text-align: center;
-		margin: 0 auto;
+		margin: 0.5em auto 0 auto;
 	}
 }
 

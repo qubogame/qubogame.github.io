@@ -35,13 +35,16 @@ Before running `localizer.py`, be sure to configure `settings.json` with the loc
 Setting Name | Description | Optional
 -------------|-------------|------------
 `output` | Relative to the `docs` folder, the path to the directory that should contain the localized versions of the webpages.
-`default` | The language code of the default language (specified in `bindings`), for which no web pages will be generated. 
+`default` | The language name of the default language, exactly as it appears on row `1` of the spreadsheet, for which no web pages will be generated. 
 `sheets` | An object containing values necessary to download the localization data from the Google Sheets spreadsheet
 `sheets.documentId` | The unique ID specifying which Google Sheets document to download the localization data from
-`sheets.spreadsheet` | The name of the spreadsheet to download data from. If null or empty, uses the default (first) spreadsheet
-`sheets.start` | The start of the range to download data from. Note that row `A` is a assumed to contain the language names, and should not be specified.
-`sheets.end` | The end of the range to download data from. Note that row `A` is a assumed to contain the language names, and should not be specified.
+`sheets.spreadsheet` | The name of the spreadsheet to download data from. If not present, null, or empty, uses the default (first) spreadsheet | &check;
+`sheets.start` | The start of the range to download data from. Note that row `1` is a assumed to contain the language names, and should not be specified.
+`sheets.end` | The end of the range to download data from. Note that row `1` is a assumed to contain the language names, and should not be specified.
 `bindings` | An array of objects containing values which bind translations on the localizations spreadsheet to actual, generated web pages.
-`bindings[x].spreadsheetName` | The name of this language, exactly as it appears on row `A` of the localization spreadsheet
+`bindings[x].spreadsheetName` | The name of this language, exactly as it appears on row `1` of the localization spreadsheet
 `bindings[x].languageCode` | The Accept-Language code for this language, as specified by [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
 `bindings[x].generate` | If specified and set to `false`, no website will be generated for this language. Use to prevent generating a website for a language whose translations are not yet complete | &check;
+`replacements` | An array of objects, each specifying selectors that should be replaced with the given HTML | &check;
+`replacements[x].selector` | A CSS selector indicating which element to replace
+`replacements[x].src` | The path to an HTML source file whose contents will replace the given selector 

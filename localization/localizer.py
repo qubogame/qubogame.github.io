@@ -1,4 +1,6 @@
 import os
+import json
+
 from appdirs import user_data_dir
 
 from tkinter import Tk
@@ -8,6 +10,8 @@ from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
+
+from translations import Translations
 
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
 
@@ -22,8 +26,10 @@ def getTokenPath ():
 def getSettings ():
     '''Gets the settings object stored in the settings.json file'''
     path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "settings.json")
+    with open(path, "r") as file:
+        contents = file.read()
+        return json.loads(contents)
     
-
 def authorize ():
     '''Authorizes this application with Google auth and returns the built Google sheets service'''
     creds = None
@@ -51,18 +57,24 @@ def authorize ():
         if not creds.valid: return None
 
         # Save the credentials for the next run
-        with open(tokenPath, 'w') as token:
+        os.makedirs(os.path.dirname(tokenPath)) # Ensure write directory exists
+        with open(tokenPath, 'w+') as token:
             token.write(creds.to_json())
     
     return build('sheets', 'v4', credentials=creds).spreadsheets()
 
 def main():
+    settings = getSettings()
+    print(settings)
+
     print("Authorizing application with Google auth...")
     service = authorize()
     if service is None:
         print("Failed to authorize application. Please try again.")
         return
     else: print("Authorized application.")
+
+    translations = Translations(service, settings)
 
 if __name__ == "__main__":
     main()

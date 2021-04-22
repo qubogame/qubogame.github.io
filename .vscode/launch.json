@@ -5,10 +5,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Localizer",
+            "name": "Localize",
             "type": "python",
             "request": "launch",
-            "program": "localization/localizer.py",
+            "program": "localization/localize.py",
             "console": "integratedTerminal"
         }
     ]

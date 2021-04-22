@@ -29,7 +29,12 @@ def _downloadData (sheets, sheetsSettings):
     # If returned valueRanges does not exist or is empty, return empty array
     if "valueRanges" not in result or not result["valueRanges"]: return []
     valueRanges = result["valueRanges"]
-    return valueRanges[0].get("values", []) + valueRanges[1].get("values", [])
+    header = valueRanges[0].get("values", [])
+    values = valueRanges[1].get("values", [])
+
+    print (f"Downloaded {len(values)} translations from Google Sheets...")
+
+    return header + values 
 
 def _mapTranslations (raw) -> dict[str, dict[str, str]]:
     '''Given the raw spreadsheet data, creates a dictionary which maps localization keys to language-specific location data
@@ -69,12 +74,16 @@ def _getLanguageSet (data):
     header = data[0]
     languages = set()
     for i in range(1, len(header)):
-        lang = header[i].split()
+        lang = header[i].strip()
         if not lang: continue
         languages.add(lang)
     return languages
 
 class Translations:
+    '''
+    Helper class that encapsulates translation data downloaded from Google Sheets.
+    '''
+
     def __init__(self, sheets, settings):
         '''Creates a translations object and downloads the translation data from Google Sheets'''
         self._settings = settings
@@ -100,12 +109,17 @@ class Translations:
         If no translation exists for this language, returns default language translation.
         '''
 
-        if key not in self._mapping: return key
+        if key not in self._mapping:
+            print (f"WARING: No translations found for key '{key}'. Using key name instead...")
+            return key
+
         translations = self._mapping[key]
-        if lang not in translations: return translations[self.defaultLanguage]
+        if lang not in translations or not translations[lang]:
+            print (f"WARNING: No {lang} translation found for key '{key}'. Using the '{self.defaultLanguage}' translation instead...")
+            return translations[self.defaultLanguage]
 
-        translated = translations[lang]
-        if not translated: return translations[self.defaultLanguage]
-        return translated
-        
+        return translations[lang]
 
+    def hasKey (self, key: str) -> bool:
+        '''Returns a true if a translation for key exists, and false otherwise'''
+        return key in self._mapping

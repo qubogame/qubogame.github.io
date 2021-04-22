@@ -1,6 +1,7 @@
 {
     "output": "lang",
-    "default": "en",
+    "input": ["index.html", "press.html", "privacypolicy.html" ],
+    "default": "English",
 
     "sheets": {
         "documentId": "1UcV9X5Fzqj-MznfQKFaPx5jnHOh8cFgtMi0I7UpZtSo",
@@ -13,6 +14,23 @@
         {
             "spreadsheetName": "English",
             "languageCode": "en"
+        },
+        {
+            "spreadsheetName": "Spanish",
+            "languageCode": "es"
         }
-    ]
+    ],
+
+    "replacements": [
+        {
+            "id": "footer-view",
+            "src": "assets/views/footer.html"
+        },
+        {
+            "id": "masthead-view",
+            "src": "assets/views/masthead.html"
+        }
+    ],
+
+    "relink": ["href", "src", "video-src"]
 }

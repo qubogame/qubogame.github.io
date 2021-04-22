@@ -12,6 +12,7 @@ from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 
 from translations import Translations
+from generator import Generator
 
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
 
@@ -57,7 +58,7 @@ def authorize ():
         if not creds.valid: return None
 
         # Save the credentials for the next run
-        os.makedirs(os.path.dirname(tokenPath)) # Ensure write directory exists
+        os.makedirs(os.path.dirname(tokenPath), exist_ok=True) # Ensure write directory exists
         with open(tokenPath, 'w+') as token:
             token.write(creds.to_json())
     
@@ -75,6 +76,12 @@ def main():
     else: print("Authorized application.")
 
     translations = Translations(service, settings)
+    generator = Generator(translations, settings)
+
+    print ()
+    print ()
+
+    generator.generate()
 
 if __name__ == "__main__":
     main()

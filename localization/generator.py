@@ -89,7 +89,7 @@ def _saveLocalizationScript (settings, bindings: list[_Binding]):
 
     # Load script into memory
     scriptContents = None
-    with open(localizationScriptPath, "r") as file:
+    with codecs.open(localizationScriptPath, "r", "utf-8") as file:
         scriptContents = file.read()        
 
     # Convert bindings list to a javascript object
@@ -99,7 +99,7 @@ def _saveLocalizationScript (settings, bindings: list[_Binding]):
     scriptContents = scriptContents.replace(u"{{LANG}}", languageBindings)
 
     # Save file
-    with open(os.path.join(_getPath(settings[_kOutput]), "localization.js"), "w+") as file:
+    with codecs.open(os.path.join(_getPath(settings[_kOutput]), "localization.js"), "w+", "utf-8") as file:
         file.write(scriptContents)
 
     print("Saved localization.js script.")
@@ -163,7 +163,7 @@ class Generator:
 
         # Load input HTML into a BeautifulSoup object
         soup = None
-        with open(_getPath(inputPath), 'r') as file:
+        with codecs.open(_getPath(inputPath), 'r', "utf-8") as file:
             raw = file.read()
             soup = BeautifulSoup(raw, features="html.parser")
 
@@ -214,7 +214,7 @@ class Generator:
 
             # Load replacement HTML
             replacementSoup = None
-            with open(src, 'r') as file:
+            with codecs.open(src, 'r', "utf-8") as file:
                 raw = file.read()
                 replacementSoup = BeautifulSoup(raw, features="html.parser")
             

@@ -93,7 +93,7 @@ def _saveLocalizationScript (settings, bindings: list[_Binding]):
         scriptContents = file.read()        
 
     # Convert bindings list to a javascript object
-    bindingsStr = map(lambda x: f'"{x.languageCode}": "/{os.path.join(settings[_kOutput], x.languageCode)}"'.replace("\\", "/"), bindings)
+    bindingsStr = map(lambda x: f'"{x.languageCode}": "/{os.path.join(settings[_kOutput], x.languageCode)}/"'.replace("\\", "/"), bindings)
     languageBindings = ", ".join(bindingsStr)
     languageBindings = "{" + languageBindings + "}"
     scriptContents = scriptContents.replace(u"{{LANG}}", languageBindings)

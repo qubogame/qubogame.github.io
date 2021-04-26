@@ -1,5 +1,5 @@
 (function() {
-    var langs = {"es": "/lang/es"};
+    var langs = {"es": "/lang/es/"};
 
     var scriptTag = document.currentScript;
     var page = scriptTag.getAttribute("page");

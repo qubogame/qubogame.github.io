@@ -38,11 +38,19 @@ $(function() {
 		});
 	});
 
-	$('#footer-view').load("assets/views/footer.html", function () {
+	var onFooterLoaded = function () {
 		// Disclaimer modal
 		showModal(document.querySelector("#disclaimer-button"),
 			document.querySelector("#disclaimer-modal"));
-	});
+	};
+
+	if (document.querySelector("#footer") != null) {
+		onFooterLoaded();
+	} else {
+		$('#footer-view').load("assets/views/footer.html", function () {
+			onFooterLoaded();
+		});
+	}
 
 	var mastHeadElement = document.getElementById("masthead-view");
 	if (mastHeadElement != null) {

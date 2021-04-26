@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 import git
 import os
 import json
+import codecs
 
 from urllib.parse import urlparse
 
@@ -79,6 +80,31 @@ def _getPath (inputPath):
     '''Gets the absolute path to inputPath, which is a path relative to the docs folder'''
     return os.path.join(_getDocsPath(), inputPath)
 
+def _saveLocalizationScript (settings, bindings: list[_Binding]):
+    '''Saves the localization.js script into the localization folder'''
+    print("Saving localization.js script...")
+
+    # Get path to localization.js
+    localizationScriptPath = os.path.join(os.path.dirname(os.path.realpath(__file__)), "template", "localization.js")
+
+    # Load script into memory
+    scriptContents = None
+    with open(localizationScriptPath, "r") as file:
+        scriptContents = file.read()        
+
+    # Convert bindings list to a javascript object
+    bindingsStr = map(lambda x: f'"{x.languageCode}": "/{os.path.join(settings[_kOutput], x.languageCode)}"'.replace("\\", "/"), bindings)
+    languageBindings = ", ".join(bindingsStr)
+    languageBindings = "{" + languageBindings + "}"
+    scriptContents = scriptContents.replace(u"{{LANG}}", languageBindings)
+
+    # Save file
+    with open(os.path.join(_getPath(settings[_kOutput]), "localization.js"), "w+") as file:
+        file.write(scriptContents)
+
+    print("Saved localization.js script.")
+
+
 class Generator:
     '''Helper class that generates and outputs localized websites'''
     def __init__ (self, translations, settings):
@@ -124,6 +150,8 @@ class Generator:
 
                 print (f"Generated '{inp}.'")
 
+        _saveLocalizationScript(self.settings, bindings)
+
     def _generatePage(self, inputPath: str, outputPath: str, binding: _Binding):
         '''
         Generates a translated webpage.
@@ -138,6 +166,9 @@ class Generator:
         with open(_getPath(inputPath), 'r') as file:
             raw = file.read()
             soup = BeautifulSoup(raw, features="html.parser")
+
+        # Remove unwanted elements from the soup
+        self._removeNoIncludes(soup)
 
         # Perform any replacements on the soup
         self._replacements(soup)
@@ -158,8 +189,13 @@ class Generator:
         output = _getPath(outputPath)
 
         os.makedirs(os.path.dirname(output), exist_ok=True) # Ensure write directory exists
-        with open(output, 'w+') as output:
-            output.write(str(soup))
+        with codecs.open(output, 'w+', "utf-8") as output:
+            output.write(str(soup.prettify()))
+
+    def _removeNoIncludes (self, soup: BeautifulSoup) -> BeautifulSoup:
+        '''Removes elements from the soup marked with no-include'''
+        elements = soup.select("[no-include]")
+        for element in elements: element.decompose()
 
     def _replacements (self, soup: BeautifulSoup) -> BeautifulSoup:
         '''Performs any replacements on the HTML, as specified in settings.json'''
@@ -208,7 +244,7 @@ class Generator:
                 # Try to interpret value as a json object
                 translations = json.loads(value.replace("'", '"'))
 
-                for attr, key in translations.values:
+                for attr, key in translations.items():
                     translated = self.translations.get(key, binding.spreadsheetName)
                     
                     if attr == "text": element.string = translated
@@ -239,6 +275,9 @@ class Generator:
 
                 # Get URL that we may or may not relink
                 url = element[attr]
+
+                # If url starts with pound character (#), do not relink
+                if url.startswith("#"): continue
 
                 parseResult = urlparse(url)
 

@@ -72,3 +72,5 @@ To translate both the inner HTML **and** an attribute, specify the `text` key in
 ```html
 <a href="https://www.mywebsite.com" localize="{'text': 'website.link', 'href': 'website.link.url'}">Go to the website!</a>
 ```
+
+To prevent certain tags and their children from appearing in translated documents, even though they appear in the source document, mark the tag with the `no-include` attribute.

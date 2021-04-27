@@ -101,7 +101,7 @@ width: 100%;
     position: relative;
     display: inline-block;
     margin: 50px 0;
-    width: 200px;
+    height: 80px;
 }
 
 .app-banners img {
@@ -119,7 +119,10 @@ width: 100%;
 .app-banners > div {
     display: block;
     margin: 0.25em auto;
+    width: 200px;
+    height: auto;
 }
+
 }
 
 .app-banners > div .coming-soon {

@@ -119,23 +119,23 @@
                     </p>
 
                     <form id="contact" target="_blank" action="https://formsubmit.co/contact@cronyxgames.com" method="POST">
-                        <h1>send us a message</h1>
-                        <h4 style="font-variant-caps: small-caps;">we'll get back to you as soon as we can</h4>
+                        <h1 localize="website.mailing.message">send us a message</h1>
+                        <h4 localize="website.mailing.message.tag" style="font-variant-caps: small-caps;">we'll get back to you as soon as we can</h4>
                         <div style="display:inline-block">
                             <div class="form-group">
                                 <div class="form-row">
                                     <div class="col">
-                                        <input type="text" name="name" class="form-control" placeholder="Name" required>
+                                        <input type="text" name="name" class="form-control" placeholder="name" localize="{'placeholder': 'website.mailing.name'}" required>
                                     </div>
                                     <div class="col">
-                                        <input type="email" name="email" class="form-control" placeholder="Email" required>
+                                        <input type="email" name="email" class="form-control" placeholder="email" localize="{'placeholder': 'website.mailing.email'}" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="text-area">
-                                <textarea name="Message" placeholder="Message" rows="10" required></textarea>
+                                <textarea name="message" placeholder="message" rows="10" localize="{'placeholder': 'website.mailing.message.placeholder'}" required></textarea>
                             </div>
-                            <button type="submit" style="width: 100%;">send</button>
+                            <button type="submit" style="width: 100%;" localize="website.mailing.message.send">send</button>
         
                         </div>
                     </form>

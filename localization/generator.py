@@ -167,14 +167,17 @@ class Generator:
             raw = file.read()
             soup = BeautifulSoup(raw, features="html.parser")
 
-        # Remove unwanted elements from the soup
-        self._removeNoIncludes(soup)
+        # Translate the page for the first time
+        self._translate(soup, binding)
 
-        # Perform any replacements on the soup
+        # Then perform any replacements on the soup
         self._replacements(soup)
 
-        # Translate the page
+        # Translate the page again to catch any new translations appearing in the replacements
         self._translate(soup, binding)
+
+        # Remove unwanted elements from the soup
+        self._removeNoIncludes(soup)
 
         # Relink the page
         inputDir = os.path.dirname(inputPath)
@@ -220,7 +223,38 @@ class Generator:
             
             for rootElement in matchingElements:
                 for replacementElement in (replacementSoup if replacementSoup.html is None else replacementSoup.html).find_all(recursive=False):
-                    rootElement.append(replacementElement)
+
+                    # Replacement element is a child of the replacement HTML that will be appended to root element in the original document
+
+                    # Make a copy of the replacement element
+                    replacementElementCopy = BeautifulSoup(str(replacementElement), features="html.parser").contents[0]
+
+                    # Look for "replace" specifiers within the element copy, whose values should be replaced with attributes from the rootElement
+                    replacementSpecifiers = replacementElementCopy.select("[replace]")
+
+                    for specifier in replacementSpecifiers:
+
+                        value = specifier["replace"]
+
+                        # Replace key value pairs
+                        try:
+                            # Try to interpret value as a json object
+                            specifiers = json.loads(value.replace("'", '"'))
+
+                            for attr, key in specifiers.items():
+                                if rootElement.has_attr(key):
+                                    if attr == "text": specifier.string = rootElement[key]
+                                    else: specifier[attr] = rootElement[key]
+                                else:
+                                    print(f"WARNING: Desired attribute replacement '{key}' in {replacements[_kReplacementsSrc]} does not exist on root object: {str(rootElement)}")
+
+                        except json.decoder.JSONDecodeError:
+                            # Interpret value as a key
+                            if rootElement.has_attr(value): specifier.string = rootElement[value]
+                            else:
+                                print(f"WARNING: Desired attribute replacement '{key}' in {replacements[_kReplacementsSrc]} does not exist on root object: {str(rootElement)}")
+
+                    rootElement.append(replacementElementCopy)
 
                 # Delete matching element's id if necessary
                 if removeId:

@@ -254,6 +254,8 @@ class Generator:
                             else:
                                 print(f"WARNING: Desired attribute replacement '{key}' in {replacements[_kReplacementsSrc]} does not exist on root object: {str(rootElement)}")
 
+                        del specifier.attrs["replace"]
+
                     rootElement.append(replacementElementCopy)
 
                 # Delete matching element's id if necessary

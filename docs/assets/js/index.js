@@ -18,6 +18,9 @@ function startCountdown () {
 	var root = document.querySelector("#header .contents .countdown");
 
 	var countdown = function() {
+		root.innerHTML = "Available Now";
+		return;
+
 		// Get today's date and time
 		var now = new Date().getTime();
 

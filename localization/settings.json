@@ -18,6 +18,10 @@
         {
             "spreadsheetName": "Spanish",
             "languageCode": "es"
+        },
+        {
+            "spreadsheetName": "French",
+            "languageCode": "fr"
         }
     ],
 

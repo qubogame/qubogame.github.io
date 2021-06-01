@@ -3,7 +3,7 @@
     if (location.hostname === "localhost" || location.hostname === "127.0.0.1" || location.hostname === "")
         return;
 
-    var langs = {"es": "/lang/es/"};
+    var langs = {"es": "/lang/es/", "fr": "/lang/fr/"};
 
     var scriptTag = document.currentScript;
     var page = scriptTag.getAttribute("page");
